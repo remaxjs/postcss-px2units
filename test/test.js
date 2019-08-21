@@ -147,4 +147,12 @@ describe('postcss-px2units', () => {
   it('work in others', (done) => {
     test(`.main {background: 12px 12rpx url('https://px.test.com/rpx/PX/pX.png')}`, `.main {background: 12rpx 12rpx url('https://px.test.com/rpx/PX/pX.png')}`, {}, done)
   })
+
+  it('ignore uppercase value', (done) => {
+    test(`.title {
+      font-size: 24PX;
+    }`, `.title {
+      font-size: 24PX;
+    }`, {}, done)
+  });
 })

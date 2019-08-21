@@ -15,7 +15,7 @@ module.exports = postcss.plugin('postcss-px2units', function (opts) {
     if (!str) {
       return '';
     }
-    return str.replace(/\b(\d+(\.\d+)?)px\b/ig, function (match, x) {
+    return str.replace(/\b(\d+(\.\d+)?)px\b/g, function (match, x) {
       var size = x * opts.multiple / opts.divisor;
       return size % 1 === 0 ? size + opts.targetUnits : size.toFixed(opts.decimalPlaces) + opts.targetUnits;
     });
