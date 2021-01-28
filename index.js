@@ -9,7 +9,7 @@ module.exports = postcss.plugin('postcss-px2units', function (opts) {
     decimalPlaces: 2,
     targetUnits: 'rpx',
     comment: 'no',
-    minPixelValue: 0,
+    minPixelValue: 0
   }, opts);
 
   function repalcePx(str) {
@@ -17,7 +17,9 @@ module.exports = postcss.plugin('postcss-px2units', function (opts) {
       return '';
     }
     return str.replace(/\b(\d+(\.\d+)?)px\b/g, function (match, x) {
-      if (x < opts.minPixelValue) return match
+      if (x <= opts.minPixelValue) {
+        return match;
+      }
       var size = x * opts.multiple / opts.divisor;
       return size % 1 === 0 ? size + opts.targetUnits : size.toFixed(opts.decimalPlaces) + opts.targetUnits;
     });

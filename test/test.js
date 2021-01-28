@@ -155,4 +155,12 @@ describe('postcss-px2units', () => {
       font-size: 24PX;
     }`, {}, done)
   });
+
+  it('ignore min value', (done) => {
+    test(`.title {
+      font-size: 0px;
+    }`, `.title {
+      font-size: 0px;
+    }`, {}, done)
+  });
 })
