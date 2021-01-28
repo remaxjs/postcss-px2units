@@ -1,6 +1,6 @@
 {
   "name": "@remax/postcss-px2units",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "postcss plugin",
   "main": "index.js",
   "scripts": {
